@@ -15,31 +15,28 @@
 .sneakers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;  /* Espacement entre les items */
-  padding: 30px 50px;  /* padding pour l'espace */
+  gap: 40px;  
+  padding: 30px 50px;  
   max-width: 1400px;
   margin: 0 auto;
-  justify-items: center;  /* Centre les items dans leurs cellules */
+  justify-items: center;  
 }
- 
-/* Force l'espacement en ajustant la largeur des items */
+
 .sneakers-grid .sneaker-item {
-  max-width: 350px;  /* Largeur maximale pour créer de l'espace */
+  max-width: 350px;  
   width: 100%;
 }
  
-/* Responsive : 2 colonnes sur tablette */
 @media (max-width: 1024px) {
   .sneakers-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;  /* Espacement maintenu sur tablette */
+    gap: 25px; 
   }
 }
- 
-/* Responsive : 1 colonne sur mobile */
+
 @media (max-width: 768px) {
   .sneakers-grid {
     grid-template-columns: 1fr;
-    gap: 20px;  /* Espacement réduit sur mobile */
+    gap: 20px; 
   }
 }

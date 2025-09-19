@@ -73,3 +73,27 @@
   align-items: center;
   gap: 8px;
 }
+
+.best-seller-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff7575;
+  color: rgb(0, 0, 0);
+  padding: 6px 9px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.sneaker-item.best-seller {
+  border: 2px solid gold;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Hover spécifique pour les best-sellers */
+.sneaker-item.best-seller:hover {
+  transform: translateY(-7px);  
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}

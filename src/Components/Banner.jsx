@@ -6,8 +6,8 @@ function Banner() {
     <header className='banner'>
         <img src={logo} className='banner-logo' alt='Logo Sneakers'/>
         <div className='banner-content'>
-            <h1>Sneakers Store</h1>
-            <p>Trouvez ici les sneakers de vos rêves</p>
+            <h1>SNEAKERS SET</h1>
+            <p>Le style qui vous accompagne partout</p>
         </div>
     </header>
   );

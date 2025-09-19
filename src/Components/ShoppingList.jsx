@@ -15,7 +15,9 @@ function ShoppingList(){
                         prix={sneaker.prix}
                         style={sneaker.style}
                         esthetisme={sneaker.esthetique}     
-                        confort={sneaker.confort}  
+                        confort={sneaker.confort}
+                        image={sneaker.image}
+                        bestSeller={sneaker.bestSeller}  
                     />
                 ))}
             </div>
