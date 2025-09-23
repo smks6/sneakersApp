@@ -78,7 +78,7 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  background: #ff7575;
+  background: #ffd151;
   color: rgb(0, 0, 0);
   padding: 6px 9px;
   border-radius: 6px;
@@ -96,4 +96,11 @@
 .sneaker-item.best-seller:hover {
   transform: translateY(-7px);  
   box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.avis-details{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
 }

@@ -1,9 +1,14 @@
 import '../styles/ShoppingItem.css';  
-import '../styles/SneakerItem.css'
-
+import '../styles/SneakerItem.css';
+import {useState} from 'react';
 import CustomerReview from './CustomerReview';
 
-function SneakerItem({nom, marque, prix, style, esthetisme, confort, image, bestSeller=false}){  
+function SneakerItem({nom, marque, prix, style, esthetique, confort, image, bestSeller=false}){ 
+    const [showReviews, setShowReviews] = useState(false);
+    const handleToggleAvis=()=>{
+        setShowReviews(!showReviews);
+    }
+ 
     return(
         <div className={`sneaker-item ${bestSeller ? 'best-seller' : ''}`}>
             <div className='sneaker-image'>
@@ -16,8 +21,15 @@ function SneakerItem({nom, marque, prix, style, esthetisme, confort, image, best
             <p className="sneaker-style">{style}</p>
             
             <div className='sneaker-review'>
-                <CustomerReview reviewType='esthétisme' scaleValue={esthetisme}/> 
-                <CustomerReview reviewType='confort' scaleValue={confort}/>
+                <button onClick={handleToggleAvis}>
+                    {showReviews ? 'Masquer les avis' : 'Voir les avis'}
+                </button>
+                {showReviews && (
+                    <div className='avis-details'>
+                        <CustomerReview reviewType='esthétisme' scaleValue={esthetique}/>
+                        <CustomerReview reviewType='confort' scaleValue={confort}/>
+                    </div>    
+                )}
             </div>
         </div>
     )
