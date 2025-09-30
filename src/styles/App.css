@@ -45,6 +45,7 @@
     margin: 1rem auto;
 }
 
+
 .cart ul {
     list-style: none;
     padding: 0;
@@ -71,5 +72,7 @@
 .clear-cart-btn {
     margin-top: 1rem;
     background-color: #cc0000;
-    text-align: center;
+    
 }
+
+
