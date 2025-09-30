@@ -75,7 +75,7 @@ export const sneakersList = [
   },
   {
     id: "7",
-    nom: "Sneakers Rouge Vif",
+    nom: "Sneakers Rouge et Blanche",
     marque: "Givenchy",
     prix: 438,
     style: "Mode",

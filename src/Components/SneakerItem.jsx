@@ -3,10 +3,15 @@ import '../styles/SneakerItem.css';
 import {useState} from 'react';
 import CustomerReview from './CustomerReview';
 
-function SneakerItem({nom, marque, prix, style, esthetique, confort, image, bestSeller=false}){ 
+function SneakerItem({sneakerData, onAddToCart}){
+    const {nom, marque, prix, style, esthetique, confort, image, bestSeller=false} = sneakerData;
     const [showReviews, setShowReviews] = useState(false);
     const handleToggleAvis=()=>{
         setShowReviews(!showReviews);
+    }
+    const handleAddToCart=()=>{
+        console.log('🛒 Données transmises: ', sneakerData);
+        onAddToCart(sneakerData);
     }
  
     return(
@@ -30,6 +35,12 @@ function SneakerItem({nom, marque, prix, style, esthetique, confort, image, best
                         <CustomerReview reviewType='confort' scaleValue={confort}/>
                     </div>    
                 )}
+            </div>
+
+            <div className='sneaker-actions'>
+                <button onClick={handleAddToCart} className='add-to-cart-btn'>
+                    🛒 Ajouter au panier
+                </button>
             </div>
         </div>
     )
