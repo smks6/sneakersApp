@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Cart from './Cart';
 import '../styles/App.css';
 import ShoppingList from './ShoppingList';
-import SneakerItem from './SneakerItem';
+
 
 function App() {
   const [cart, setCart]=useState(()=>{
@@ -29,7 +29,7 @@ function App() {
     });
   };
 
-  const removeItem = (id) => {
+  const removeFromCart = (id) => {
     setCart(prevCart => prevCart.filter(item => item.id !== id));
   };
 
@@ -43,7 +43,7 @@ function App() {
       <Banner />
       <ShoppingList onAddToCart={addToCart}/>
       <Cart cartItems={cart} 
-            onRemoveItem={removeItem} 
+            onRemoveFromCart={removeFromCart} 
             onClearCart={clearCart}
       />
     </div>

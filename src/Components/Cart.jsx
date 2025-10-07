@@ -1,4 +1,4 @@
-function Cart({ cartItems, onRemoveItem, onClearCart }) {
+function Cart({ cartItems, onRemoveFromCart, onClearCart }) {
     const totalItems = cartItems.reduce((sum, item) => 
         sum + item.quantity, 0);
     const totalPrice = cartItems.reduce((sum, item) => 
@@ -9,14 +9,14 @@ function Cart({ cartItems, onRemoveItem, onClearCart }) {
             <h2>🛒 Panier</h2>
 
             {cartItems.length === 0 ? (
-                <p>Votre panier est vide, continuez vos achats.</p>
+                <h3>Votre panier est vide, continuez vos achats.</h3>
             ) : (
                 <>
                     <ul>
                         {cartItems.map(item => (
                             <li key={item.id}>
                                 <strong>{item.nom}</strong> ({item.quantity}) - {item.prix * item.quantity} €
-                                <button onClick={() => onRemoveItem(item.id)} className="remove-item-btn">
+                                <button onClick={() => onRemoveFromCart(item.id)} className="remove-item-btn">
                                    Retirer
                                 </button>
                             </li>

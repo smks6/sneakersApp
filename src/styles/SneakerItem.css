@@ -71,6 +71,7 @@
 
 .sneaker-review button{
   border: solid rgb(207, 207, 207);
+  font: 700 17px/21px Arial, Helvetica, sans-serif;
   border-radius: 8px;
   background-color: white;
   margin-bottom: 12px;
@@ -103,7 +104,7 @@
 /* Hover spécifique pour les best-sellers */
 .sneaker-item.best-seller:hover {
   transform: translateY(-7px);  
-  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .avis-details{
@@ -115,6 +116,8 @@
 
 .sneaker-actions button{
   border: solid grey;
+  font: 700 17px/21px Arial, Helvetica, sans-serif;
   border-radius: 12px;
-  background-color: white;
+  background-color: #ffd1db
+
 }

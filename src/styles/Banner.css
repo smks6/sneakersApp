@@ -63,7 +63,15 @@
   text-align: right;
   flex-grow: 1;
 }
-
+.banner-content button{
+  font-family: 'Times New Roman', Times, serif;
+  background : transparent; 
+  border-radius: 5.5px;
+  border-color: orange;
+  font-size: large;
+  margin-left:15px;
+  box-sizing: border-box;
+}
 .banner-content h1{
   margin: 0 0 8px 0;
   font-size: 2.8rem;
