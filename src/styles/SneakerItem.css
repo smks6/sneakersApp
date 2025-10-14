@@ -118,6 +118,12 @@
   border: solid grey;
   font: 700 17px/21px Arial, Helvetica, sans-serif;
   border-radius: 12px;
-  background-color: #ffd1db
+  background-color: #c8ad7f 
 
+}
+
+.sneaker-actions button:hover {
+  background-color: #f5a90563;
+  color: rgba(0, 0, 0, 0.589);
+  transform: translateY(-2px);
 }

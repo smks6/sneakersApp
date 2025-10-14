@@ -1,17 +1,21 @@
 import logo from '../assets/logo.png';
 import '../styles/Banner.css';
-import './Cart.jsx';
+import { Link } from 'react-router-dom';
 
-function Banner() {
+function Banner({ cartCount }) {
   return (
     <header className='banner'>
-        <img src={logo} className='banner-logo' alt='Logo Sneakers'/>
-        <div className='banner-content'>
-            <button>🛒 Panier</button>
-            <button>Accueil</button>
-            <h1>SNEAKERS SET</h1>
-            <p>Le style qui vous accompagne partout</p>
-        </div>
+      <img src={logo} className='banner-logo' alt='Logo Sneakers' />
+      <div className='banner-content'>
+        <Link to="/panier">
+          <button>🛒 Panier {cartCount > 0 && <span className="cart-count"> ({cartCount})</span>}</button>
+        </Link>
+        <Link to="/">
+          <button>Accueil</button>
+        </Link>
+        <h1>SNEAKERS SET</h1>
+        <p>Le style qui vous accompagne partout</p>
+      </div>
     </header>
   );
 }

@@ -63,15 +63,28 @@
   text-align: right;
   flex-grow: 1;
 }
-.banner-content button{
-  font-family: 'Times New Roman', Times, serif;
-  background : transparent; 
-  border-radius: 5.5px;
-  border-color: orange;
-  font-size: large;
-  margin-left:15px;
-  box-sizing: border-box;
+
+.banner-content button {
+  background-color: white;
+  color: #ff4756;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
+
+.banner-content button:hover {
+  background-color: #ff889263;
+  color: rgb(255, 255, 255);
+  transform: translateY(-2px);
+}
+
 .banner-content h1{
   margin: 0 0 8px 0;
   font-size: 2.8rem;
