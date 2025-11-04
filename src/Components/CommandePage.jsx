@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/ShippingPage.css';
 import { useState } from 'react';
 
@@ -10,10 +11,12 @@ function ShippingForm({ onShippingComplete }) {
         firstName: '',
         lastName: '',
         email: '',
+        tel: '',
         address: '',
         city: '',
         postalCode: '',
         deliveryOptions: 'standard',
+        deliveryTime: '',
         newsletter: false
     });
 
@@ -24,7 +27,7 @@ function ShippingForm({ onShippingComplete }) {
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         if (name.includes('.')) {
-            const [parent, child] = name.split('.'); 
+            const [parent, child] = name.split('.');
             setFormData(prev => ({
                 ...prev,
                 [parent]: {
@@ -45,7 +48,7 @@ function ShippingForm({ onShippingComplete }) {
 
     const validateForm = (data) => {
         const errors = {};
-        
+
         if (!data.firstName.trim()) errors.firstName = 'Prénom requis';
         if (!data.lastName.trim()) errors.lastName = 'Nom requis';
         if (!data.email.trim()) errors.email = 'Email requis';
@@ -57,34 +60,34 @@ function ShippingForm({ onShippingComplete }) {
         if (data.email && !emailRegex.test(data.email)) {
             errors.email = 'Format email invalide';
         }
-        
+
         const postalRegex = /^[0-9]{5}$/;
         if (data.postalCode && !postalRegex.test(data.postalCode)) {
             errors.postalCode = 'Code postal invalide';
         }
-        
+
 
         return errors;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         setIsSubmitting(true);
         setErrors({});
-        
+
         try {
             const validationErrors = validateForm(formData);
             if (Object.keys(validationErrors).length > 0) {
                 setErrors(validationErrors);
                 return;
             }
-            
+
             await new Promise(resolve => setTimeout(resolve, 1000));
-            
+
             setSuccess(true);
             onShippingComplete?.(formData);
-            
+
         } catch (error) {
             setErrors({ general: "Erreur lors de l'envoi" });
         } finally {
@@ -104,14 +107,14 @@ function ShippingForm({ onShippingComplete }) {
     return (
         <div className="shipping-form">
             <h2>Informations de livraison</h2>
-            
+
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Informations personnelles</legend>
-                    
+
                     <div className="form-group">
                         <label htmlFor="firstName">Prénom *</label>
-                        <input 
+                        <input
                             id="firstName"
                             name="firstName"
                             type="text"
@@ -121,10 +124,10 @@ function ShippingForm({ onShippingComplete }) {
                         />
                         <ErrorMessage error={errors.firstName} />
                     </div>
-                    
+
                     <div className="form-group">
                         <label htmlFor="lastName">Nom *</label>
-                        <input 
+                        <input
                             id="lastName"
                             name="lastName"
                             type="text"
@@ -134,10 +137,10 @@ function ShippingForm({ onShippingComplete }) {
                         />
                         <ErrorMessage error={errors.lastName} />
                     </div>
-                    
+
                     <div className="form-group">
                         <label htmlFor="email">Email *</label>
-                        <input 
+                        <input
                             id="email"
                             name="email"
                             type="email"
@@ -150,7 +153,7 @@ function ShippingForm({ onShippingComplete }) {
 
                     <div className="form-group">
                         <label htmlFor="phone">Téléphone (+33)</label>
-                        <input 
+                        <input
                             id="phone"
                             name="phone"
                             type="tel"
@@ -168,10 +171,10 @@ function ShippingForm({ onShippingComplete }) {
 
                 <fieldset>
                     <legend>Adresse de livraison</legend>
-                    
+
                     <div className="form-group">
                         <label htmlFor="address">Adresse *</label>
-                        <input 
+                        <input
                             id="address"
                             name="address"
                             type="text"
@@ -181,10 +184,10 @@ function ShippingForm({ onShippingComplete }) {
                         />
                         <ErrorMessage error={errors.address} />
                     </div>
-                    
+
                     <div className="form-group">
                         <label htmlFor="city">Ville *</label>
-                        <input 
+                        <input
                             id="city"
                             name="city"
                             type="text"
@@ -194,10 +197,10 @@ function ShippingForm({ onShippingComplete }) {
                         />
                         <ErrorMessage error={errors.city} />
                     </div>
-                    
+
                     <div className="form-group">
                         <label htmlFor="postalCode">Code postal *</label>
-                        <input 
+                        <input
                             id="postalCode"
                             name="postalCode"
                             type="text"
@@ -212,10 +215,10 @@ function ShippingForm({ onShippingComplete }) {
 
                 <fieldset>
                     <legend>Options de livraison</legend>
-                    
+
                     <div className="radio-group">
                         <label>
-                            <input 
+                            <input
                                 name="deliveryOptions"
                                 type="radio"
                                 value="standard"
@@ -225,9 +228,9 @@ function ShippingForm({ onShippingComplete }) {
                             />
                             Livraison standard (3-5 jours) - Gratuit
                         </label>
-                        
+
                         <label>
-                            <input 
+                            <input
                                 name="deliveryOptions"
                                 type="radio"
                                 value="express"
@@ -238,7 +241,22 @@ function ShippingForm({ onShippingComplete }) {
                             Livraison express (24h) - 9,99€
                         </label>
                     </div>
+                    <div className='select-group'>
+                        <label htmlFor="deliveryTime">Choisir un crénau horaire :</label>
 
+                        <select
+                            Id="deliveryTime"
+                            name="deliveryTime"
+                            value={formData.deliveryTime}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                        >
+                            <option value=''>---</option>
+                            <option value="Matin">Matin (8h-12h)</option>
+                            <option value="Midi">Midi (10h-14h)</option>
+                            <option value="Apres-midi">Après-midi(14h-18h)</option>
+                        </select>
+                    </div>
 
                 </fieldset>
                 <fieldset>
@@ -246,16 +264,16 @@ function ShippingForm({ onShippingComplete }) {
 
                     <div className="form-group">
                         <label htmlFor="newsletter"></label>
-                            <input 
-                                id="newsletter"
-                                name="newsletter"
-                                type="checkbox"
-                                checked={formData.newsletter}
-                                onChange={handleChange}
-                                disabled={isSubmitting}
-                            />
+                        <input
+                            id="newsletter"
+                            name="newsletter"
+                            type="checkbox"
+                            checked={formData.newsletter}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                        />
                         S'abonner à notre newsletter
-                    
+
                     </div>
                 </fieldset>
 
@@ -265,12 +283,16 @@ function ShippingForm({ onShippingComplete }) {
                     </div>
                 )}
 
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     disabled={isSubmitting}
                 >
                     {isSubmitting ? 'Traitement...' : 'Confirmer la commande'}
                 </button>
+
+                <Link to="/panier" className='retour'>
+                    <button >Retour au panier</button>
+                </Link>
             </form>
         </div>
     );

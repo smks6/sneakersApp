@@ -104,6 +104,25 @@ button[type="submit"]:hover {
   background: #999999;
 }
 
+.retour button{
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  background: #464646;
+  color: #fff;
+  font-size: 1.13rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background .2s;
+  text-underline-offset: none;
+}
+.retour button:hover {
+  background: #999999;
+}
+
 .success-message {
   padding: 28px 18px;
   background: #f5faf6;
@@ -113,4 +132,30 @@ button[type="submit"]:hover {
   max-width: 340px;
   margin: 48px auto;
   text-align: center;
+}
+
+.select-group label{
+  margin-right: 18px;
+}
+.select-group select{
+  border-radius: 5px;
+  display: block;
+  background: #cccccc;
+  color: #000000;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-underline-offset: none;
+  margin-left: 125px;
+  margin-top: 2px;
+}
+
+.radio-group label{
+  margin-left: 30px;
+  margin-right: 50px
+}
+
+.radio-group{
+  text-align: center;
+  margin-bottom: 7px;
 }
