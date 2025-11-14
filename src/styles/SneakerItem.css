@@ -70,12 +70,26 @@
 }
 
 .sneaker-review button{
-  border: solid rgb(207, 207, 207);
-  font: 700 17px/21px Arial, Helvetica, sans-serif;
-  border-radius: 8px;
-  background-color: white;
-  margin-bottom: 12px;
+   background-color: white;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
+
+.sneaker-review button:hover{
+  background-color: #00000063;
+  color: rgb(255, 255, 255);
+  transform: translateY(-2px);
+}
+
 .sneaker-review > div {
   margin: 6px 0;  
   display: flex;
@@ -115,11 +129,19 @@
 }
 
 .sneaker-actions button{
-  border: solid grey;
-  font: 700 17px/21px Arial, Helvetica, sans-serif;
-  border-radius: 12px;
-  background-color: #c8ad7f 
-
+  margin-top: 12px;
+  background-color: #c8ad7f ;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .sneaker-actions button:hover {

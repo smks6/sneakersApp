@@ -17,7 +17,12 @@ function ShippingForm({ onShippingComplete }) {
         postalCode: '',
         deliveryOptions: 'standard',
         deliveryTime: '',
-        newsletter: false
+        newsletter: false,
+        additionalServices: {
+            assembly: false,
+            giftWrap: false,
+            insurance: false
+        },
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,11 +46,7 @@ function ShippingForm({ onShippingComplete }) {
                 [name]: type === 'checkbox' ? checked : value
             }));
         }
-        if (errors[name]) {
-            setErrors(prev => ({ ...prev, [name]: '' }));
-        }
     };
-
     const validateForm = (data) => {
         const errors = {};
 
@@ -241,8 +242,50 @@ function ShippingForm({ onShippingComplete }) {
                             Livraison express (24h) - 9,99€
                         </label>
                     </div>
+                    
+                    <div className='radio-group-add'>
+                        <legend>Services additionnels</legend>
+                        <label>
+                            <input
+                                name="additionalServices.assembly"
+                                type="radio"
+                                value="montage"
+                                checked={formData.additionalServices.assembly === 'montage'}
+                                onChange={handleChange}
+                                disabled={isSubmitting}
+                            />
+                            Montage à domicile (+105,00€)
+                        </label>
+
+                        <label>
+                            <input
+                                name="additionalServices.assembly"
+                                type="radio"
+                                value="emballage"
+                                checked={formData.additionalServices.assembly === 'emballage'}
+                                onChange={handleChange}
+                                disabled={isSubmitting}
+                            />
+                            Emballage cadeau (+5,00€)
+                        </label>
+
+                        <label>
+                            <input
+                                name="additionalServices.assembly"
+                                type="radio"
+                                value="assurance"
+                                checked={formData.additionalServices.assembly === 'assurance'}
+                                onChange={handleChange}
+                                disabled={isSubmitting}
+                            />
+                            Assurance transport (+15,00€)
+                        </label>
+
+
+                    </div>
+                    
                     <div className='select-group'>
-                        <label htmlFor="deliveryTime">Choisir un crénau horaire :</label>
+                        <legend>Choix du créneau horaire :</legend>
 
                         <select
                             Id="deliveryTime"
@@ -257,7 +300,7 @@ function ShippingForm({ onShippingComplete }) {
                             <option value="Apres-midi">Après-midi(14h-18h)</option>
                         </select>
                     </div>
-
+                    
                 </fieldset>
                 <fieldset>
                     <legend>Préférences</legend>

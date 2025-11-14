@@ -150,12 +150,22 @@ button[type="submit"]:hover {
   margin-top: 2px;
 }
 
-.radio-group label{
-  margin-left: 30px;
-  margin-right: 50px
+.radio-group,
+.radio-group-add {
+  display: flex;
+  flex-direction: column; /* Les éléments passent les uns sous les autres */
+  align-items: center; /* Centre les éléments horizontalement */
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 8px; /* Espace entre chaque bouton radio */
+  text-align: center;
 }
 
-.radio-group{
-  text-align: center;
-  margin-bottom: 7px;
+.radio-group label,
+.radio-group-add label {
+  margin: 0; /* Supprime les marges horizontales inutiles */
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Espace entre le bouton et le texte */
+  justify-content: center;
 }
